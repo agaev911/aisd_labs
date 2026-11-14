@@ -33,7 +33,6 @@ int main()
     OutputPeres(bestTour, n);
     cout << "Стоимость: " << exactCost << "\n";
 
-
     for (int i = 0; i < n; i++)
         delete[] matrix[i];
     delete[] matrix;

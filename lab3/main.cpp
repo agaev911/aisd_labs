@@ -1,4 +1,6 @@
 #include "shell.h"
+#include <ctime>
+#include<chrono>
 
 int main()
 {
@@ -29,12 +31,16 @@ int main()
         cout << h[i] << " ";
     cout << "\n";
 
+
+    auto start = chrono::high_resolution_clock::now();
     shellSort(arr, n, h, t);
+    auto end = chrono::high_resolution_clock::now();
 
     cout << "\nОтсортированный: ";
     printArray(arr, n);
 
     cout << "Проверка: " << (isSorted(arr, n) ? "OK" : "FAIL") << "\n";
+    cout << "затраченное время: " << chrono::duration<double, milli>(end - start).count();
 
     delete[] arr;
     delete[] h;

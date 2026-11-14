@@ -529,3 +529,28 @@ void bitsort(int* array, int first, int last, int bit)
 	if (i < last && bit >= 0) bitsort(array, i, last, bit - 1);
 	if (first < j && bit >= 0) bitsort(array, first, j, bit - 1);
 }
+
+#include <chrono>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// ============================================================
+// ÓÍÈÂÅĞÑÀËÜÍÀß ÔÓÍÊÖÈß ÇÀÌÅĞÀ ÂĞÅÌÅÍÈ
+// ============================================================
+template<typename Func>
+double measureTime(Func func)
+{
+	auto start = chrono::high_resolution_clock::now();
+	func();
+	auto end = chrono::high_resolution_clock::now();
+	return chrono::duration<double, milli>(end - start).count();
+}
+
+#include <ctime>
+clock_t start = clock();
+// ... ñîğòèğîâêà ...
+clock_t end = clock();
+
+double time = (double)(end - start) / CLOCKS_PER_SEC;  // â ñåêóíäàõ

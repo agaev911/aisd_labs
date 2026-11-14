@@ -28,7 +28,7 @@ int main()
     int* bestTour = new int[n + 1];
     int exactCost = Poln(matrix, n, k, bestTour);
 
-    cout << "\n=== ÒÎ×ÍÎÅ ÐÅØÅÍÈÅ (ÏÅÐÅÁÎÐ) ===\n";
+    cout << "\n ÒÎ×ÍÎÅ ÐÅØÅÍÈÅ (ÏÅÐÅÁÎÐ)\n";
     cout << "Ëó÷øèé òóð: ";
     OutputPeres(bestTour, n);
     cout << "Ñòîèìîñòü: " << exactCost << "\n";

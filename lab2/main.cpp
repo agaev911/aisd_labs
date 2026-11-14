@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 
+#include <chrono>
+#include <ctime>
+
+
 using namespace std;
 
 //Реализовать функцию получения индекса первого вхождения подстроки в тексте. 
@@ -31,10 +35,17 @@ using namespace std;
 
 int main() 
 {
+	setlocale(LC_ALL, "rus");
+
 	string s = "std::move_iterator is an iterator adaptor which behaves exactly like the underlying iterator";
 	string p = "tor";
 
-	cout << searchfirstBM(s, p);
+	auto start = chrono::high_resolution_clock::now();	cout << searchfirstBM(s, p);
+	auto end = chrono::high_resolution_clock::now();
 
+	return chrono::duration<double, milli>(end - start).count();
+
+	cout << "затраченное время: " << chrono::duration<double, milli>(end - start).count();
 	return 0;
 }
+
